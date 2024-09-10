@@ -1,0 +1,86 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<KeyinTree xmlns="http://www.bentley.com/schemas/1.0/MicroStation/AddIn/KeyinTree.xsd">
+
+    <RootKeyinTable ID="root">
+        <Keyword SubtableRef="Commands" CommandWord="Excavation">
+            <Options Required="true" />
+        </Keyword>
+    </RootKeyinTable>
+
+    <SubKeyinTables>
+        <KeyinTable ID="Commands">            
+            <Keyword SubtableRef="FromCmd1" CommandWord="通用">
+                <Options Required="true" />
+            </Keyword>
+            <Keyword SubtableRef="FromCmd2" CommandWord="放坡">
+              <Options Required="true" />
+            </Keyword>
+            <Keyword SubtableRef="FromCmd3" CommandWord="三维">
+              <Options Required="true" />
+            </Keyword>
+            <Keyword SubtableRef="FromCmd4" CommandWord="标注">
+              <Options Required="true" />
+            </Keyword>
+            <Keyword SubtableRef="FromCmd5" CommandWord="出图">
+              <Options Required="true" />
+            </Keyword>
+            <Keyword SubtableRef="FromCmd6" CommandWord="工程">
+              <Options Required="true" />
+            </Keyword>
+        </KeyinTable>
+
+        <KeyinTable ID="FromCmd1">
+          <Keyword CommandWord="初始化" />
+          <Keyword CommandWord="元素隐藏" />
+          <Keyword CommandWord="元素选择" />
+        </KeyinTable>
+
+        <KeyinTable ID="FromCmd2">
+          <Keyword CommandWord="放坡界面" />
+          <Keyword CommandWord="直线拟合" />
+          <Keyword CommandWord="圆弧倒角" />
+          <Keyword CommandWord="边缘修剪" />
+        </KeyinTable>
+
+        <KeyinTable ID="FromCmd3">
+          <Keyword CommandWord="构造开挖面" />
+          <Keyword CommandWord="三维处理" />
+        </KeyinTable>
+
+        <KeyinTable ID="FromCmd4">
+          <Keyword CommandWord="标注界面" />
+        </KeyinTable>
+
+        <KeyinTable ID="FromCmd5">
+          <Keyword CommandWord="自动八视图" />
+          <Keyword CommandWord="提取剖面线" />
+        </KeyinTable>    
+      
+        <KeyinTable ID="FromCmd6">
+          <Keyword CommandWord="支护量计算" />
+        </KeyinTable>
+    </SubKeyinTables>
+      
+    <KeyinHandlers>
+        <KeyinHandler Keyin="Excavation 通用 初始化"            Function="MeshExcavationRebuild.Commands.input"/>
+        <KeyinHandler Keyin="Excavation 通用 元素隐藏"            Function="MeshExcavationRebuild.Commands.HideEle"/>
+        <KeyinHandler Keyin="Excavation 通用 元素选择"            Function="MeshExcavationRebuild.Commands.ChooseEle"/>
+      
+        <KeyinHandler Keyin="Excavation 放坡 放坡界面"            Function="MeshExcavationRebuild.Commands.Func_Slope"/>
+        <KeyinHandler Keyin="Excavation 放坡 直线拟合"            Function="MeshExcavationRebuild.Commands.Func_LineMerge"/>
+        <KeyinHandler Keyin="Excavation 放坡 圆弧倒角"            Function="MeshExcavationRebuild.Commands.Func_ConvertArc"/>
+        <KeyinHandler Keyin="Excavation 放坡 边缘修剪"            Function="MeshExcavationRebuild.Commands.Func_LineCalculate"/>
+      
+        <KeyinHandler Keyin="Excavation 三维 构造开挖面"            Function="MeshExcavationRebuild.Commands.Line_Mesh"/>
+        <KeyinHandler Keyin="Excavation 三维 三维处理"            Function="MeshExcavationRebuild.Commands.Func_MakeBody"/>
+        
+        <KeyinHandler Keyin="Excavation 标注 标注界面"            Function="MeshExcavationRebuild.Commands.Func_Tag"/>
+        
+        <KeyinHandler Keyin="Excavation 出图 自动八视图"            Function="MeshExcavationRebuild.Commands.Func_AutoView"/>
+        <KeyinHandler Keyin="Excavation 出图 提取剖面线"            Function="MeshExcavationRebuild.Commands.Func_GetLine"/>
+
+        <KeyinHandler Keyin="Excavation 工程 支护量计算"            Function="MeshExcavationRebuild.Commands.Func_Engineer"/>
+    </KeyinHandlers>
+
+</KeyinTree>
+
